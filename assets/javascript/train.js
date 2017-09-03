@@ -7,14 +7,16 @@
 //    Then use moment.js formatting to set difference in months.
 // 5. Calculate Total billed
 // 1. Initialize Firebase
-var config = {
-  // apiKey: "AIzaSyA_QypGPkcjPtylRDscf7-HQl8ribnFeIs",
-  authDomain: "time-sheet-55009.firebaseapp.com",
-  databaseURL: "https://time-sheet-55009.firebaseio.com",
-  storageBucket: "time-sheet-55009.appspot.com"
-};
-firebase.initializeApp(config);
-var database = firebase.database();
+  var config = {
+    apiKey: "AIzaSyBalusXzSJ6aRZ6ab91ACwiQryneceQO14",
+    authDomain: "trainscheduler-f1a69.firebaseapp.com",
+    databaseURL: "https://trainscheduler-f1a69.firebaseio.com",
+    projectId: "trainscheduler-f1a69",
+    storageBucket: "trainscheduler-f1a69.appspot.com",
+    messagingSenderId: "883578258246"
+  };
+  firebase.initializeApp(config);
+
 // 2. Button for adding Trains
 $("#add-employee-btn").on("click", function(event) {
   event.preventDefault();
@@ -66,6 +68,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   var empMonths = moment().diff(moment.unix(empStart, "X"), "months");
   console.log(empMonths);
   // Calculate the total billed rate
+  
   var empBilled = empMonths * empRate;
   console.log(empBilled);
   // Add each train's data into the table
