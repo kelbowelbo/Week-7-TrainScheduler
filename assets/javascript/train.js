@@ -7,15 +7,15 @@
 //    Then use moment.js formatting to set difference in months.
 // 5. Calculate Total billed
 // 1. Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBalusXzSJ6aRZ6ab91ACwiQryneceQO14",
-    authDomain: "trainscheduler-f1a69.firebaseapp.com",
-    databaseURL: "https://trainscheduler-f1a69.firebaseio.com",
-    projectId: "trainscheduler-f1a69",
-    storageBucket: "trainscheduler-f1a69.appspot.com",
-    messagingSenderId: "883578258246"
-  };
-  firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyBalusXzSJ6aRZ6ab91ACwiQryneceQO14",
+  authDomain: "trainscheduler-f1a69.firebaseapp.com",
+  databaseURL: "https://trainscheduler-f1a69.firebaseio.com",
+  projectId: "trainscheduler-f1a69",
+  storageBucket: "trainscheduler-f1a69.appspot.com",
+  messagingSenderId: "883578258246"
+};
+firebase.initializeApp(config);
 
 // 2. Button for adding Trains
 $("#add-train-btn").on("click", function(event) {
@@ -56,12 +56,12 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   var trnDestination = childSnapshot.val().destination;
   var trnStart = childSnapshot.val().start;
   var trnRate = childSnapshot.val().rate;
-  // Employee Info
+  // Train Info
   console.log(trnName);
   console.log(trnDestination);
   console.log(trnStart);
   console.log(trnRate);
-  // Prettify the employee start
+  // Prettify the train start
   var trnStartPretty = moment.unix(trnStart).format("MM/DD/YY");
   // Calculate the months worked using hardcore math
   // To calculate the months worked
@@ -78,7 +78,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 // Example Time Math
 // -----------------------------------------------------------------------------
-// Assume Employee start date of January 1, 2015
+// Assume Train start date of January 1, 2015
 // Assume current date is March 1, 2016
 // We know that this is 15 months.
 // Now we will create code in moment.js to confirm that any attempt we use mets this test case
